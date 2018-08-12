@@ -1,0 +1,20 @@
+{
+  "name": "gradient",
+  "version": "1.0.0",
+  "description": "Adds instagram background color animation to your website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gradient",
+    "instgram",
+    "color",
+    "background",
+    "changing",
+    "color",
+    "color-transition"
+  ],
+  "author": "Navicstein Rotciv",
+  "license": "ISC"
+}
