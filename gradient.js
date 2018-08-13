@@ -10,12 +10,13 @@ class gradient {
             interval: 20,
             gradientSpeed : 0.002,
             colors: new Array(
-                [209, 220, 222],
-                [0, 0, 0, 0],
-                [60, 180, 75],
+                [230, 25, 75],
+                [0, 130, 200],
+                [255, 225, 25],
+                [245, 130, 48],
+                [70, 240, 240],
                 [0, 128, 128],
-                [199, 238, 180],
-                [232, 238, 180]
+                [0, 128, 128]
             )
         })
         this.selector = selector;
@@ -36,23 +37,24 @@ class gradient {
             hasError = true
         }
         if (typeof this.opts.interval !== "number") {
-            errors.push(`[?]'interval' must be a number.`);
+            errors.push(`[?] 'interval' must be a number.`);
             hasError = true
         }
-        if (typeof this.opts.interval !== "number") {
-            errors.push(`[?]'gradientSpeed' must be a number.`);
+        if (typeof this.opts.gradientSpeed !== "number") {
+            errors.push(`[?] 'gradientSpeed' must be a number.`);
             hasError = true
         }
         if (typeof this.opts.colors !== "object") {
-            errors.push(`[?] 'colors' must be an Array on 'rgb' colors.\n`)
+            errors.push(`[?] 'colors' must be an Array of 'rgb' colors.\n`)
             hasError = true
         }
         if (hasError) {
+            alert("Please check your console!")
             console.warn(`ERROR: => 
 ${new String("-").repeat(10)} 
 ${errors.splice(" ").join("\n")}
 ${new String("-").repeat(10)} 
-contact the author Navicstein[at]gmail[dot]com, and tell him about your issues.
+contact the author Navicstein[at]gmail[dot]com
             `)
             throw `:( Giving up after Fatal Errors, not trying again!`
         }

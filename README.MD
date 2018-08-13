@@ -1,6 +1,7 @@
 # Gradient.js
 This adds an gradiant-animation like instagram andriod app gradient to your website
 
+
 ## Syntax
 
 ```js
@@ -9,18 +10,19 @@ new gradient(slector, { options })
 
 
 ## Usage
-
+[it does not depend on any external dependency]
 Include the script in your webpages
 
 ```html
 <script async src="./path/to/gradient.js"></script>
 ```
 
-then initialize the gradiant this way
+then initialize the gradiant this way.
+You can animate diifferent elements
 
 ```js
 new gradient(document.getElementById("mainer") /*the `div` you want to animate */, {
-    interval: 23, // the time interval 
+    interval: 23, // the time interval used to run the loop
     colors: new Array(
         [199, 238, 180],
         [60, 180, 75],
@@ -36,7 +38,7 @@ new gradient(document.getElementById("mainer") /*the `div` you want to animate *
 ```js
 var sel = document.getElementById("mainer") // the `div` you want to animate
 var grad = new gradient(sel, Object.assign({
-    interval: 23, // the time interval 
+    interval: 23, // the time interval used to run the loop
     colors: new Array(
         [199, 238, 180],
         [60, 180, 75],
@@ -71,3 +73,4 @@ var defaults = Object.assign({
 # RoadMap
 - `gradient.js` will be able to automatically pick most of your site colors and use them for the `defaults`
 - will reduce verbosity
+- interpolable with jQuery [but but not yet tested]
