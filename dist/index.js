@@ -1,109 +1,78 @@
+"use strict";
 /**
  * @author Navicstein Rotciv
  * @description Adds instagram background color animation to your `div's`
  * @param selector, opts
  * @returns void
  */
-class gradient {
-    constructor(selector, opts) {
-        var defaults = Object.assign({
-            interval: 20,
-            gradientSpeed : 0.002,
-            colors: new Array(
-                [230, 25, 75],
-                [0, 130, 200],
-                [255, 225, 25],
-                [245, 130, 48],
-                [70, 240, 240],
-                [0, 128, 128],
-                [0, 128, 128]
-            )
-        })
+var errors = new Array(), hasError = false, _default = {
+    interval: 20,
+    gradientSpeed: 0.01,
+    colors: new Array([230, 25, 75], [0, 130, 200], [255, 225, 25], [245, 130, 48], [70, 240, 240], [0, 128, 128], [0, 128, 128])
+};
+var gradient = /** @class */ (function () {
+    function gradient(selector, opts) {
         this.selector = selector;
-        this.opts = opts || defaults;
+        this.opts = opts || _default;
     }
-    // this is a private method
-    check() {
-        var errors = new Array(),
-            hasError = false
-            ;
-            //console.clear()
+    gradient.prototype.report = function (attrib, stmt) {
+        errors.push("[?] '" + attrib + "' " + stmt);
+        hasError = true;
+    };
+    gradient.prototype.check = function () {
         if (this.selector === null) {
-            errors.push(`[x] can't select the document model, '${this.selector}' is not found`);
-            hasError = true
+            this.report('selector', "can't select the document model.");
         }
         if (typeof this.selector !== "object") {
-            errors.push(`[?] 'selector' must be an element [document object].`);
-            hasError = true
+            this.report('selector', "must be an element");
         }
         if (typeof this.opts.interval !== "number") {
-            errors.push(`[?] 'interval' must be a number.`);
-            hasError = true
+            this.report('interval', 'must be a number');
         }
         if (typeof this.opts.gradientSpeed !== "number") {
-            errors.push(`[?] 'gradientSpeed' must be a number.`);
-            hasError = true
+            this.report("gradientSpeed", "must be a number");
         }
         if (typeof this.opts.colors !== "object") {
-            errors.push(`[?] 'colors' must be an Array of 'rgb' colors.\n`)
-            hasError = true
+            this.report("colors", "must be an Array of 'rgb' colors.\n");
         }
-        if (hasError) {
-            alert("Please check your console!")
-            console.warn(`ERROR: => 
-${new String("-").repeat(10)} 
-${errors.splice(" ").join("\n")}
-${new String("-").repeat(10)} 
-contact the author Navicstein[at]gmail[dot]com
-            `)
-            throw `:( Giving up after Fatal Errors, not trying again!`
+        if (typeof hasError === "boolean" && hasError) {
+            console.warn("ERROR: =>\n -----\n" + errors.splice('').join('\n') + " please contact support ");
+            throw ":( Giving up after Fatal Errors, not trying again!";
         }
-    }
-    animate() {
+    };
+    gradient.prototype.animate = function () {
         this.check();
         var selector = this.selector;
-        //        typeof _ !== "function"? "error":""
-        var colors = this.opts.colors
-        let step = 0,
-            colorIndices = [0, 1, 2, 3],
-            gradientSpeed = this.opts.gradientSpeed
-            ; 
-
+        var colors = this.opts.colors;
+        var step = 0, colorIndices = [0, 1, 2, 3], gradientSpeed = this.opts.gradientSpeed;
         function updateGradient() {
             var c0_0 = colors[colorIndices[0]];
             var c0_1 = colors[colorIndices[1]];
             var c1_0 = colors[colorIndices[2]];
             var c1_1 = colors[colorIndices[3]];
-
             var istep = 1 - step;
             var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
             var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
             var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
             var color1 = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
-
             var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
             var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
             var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
             var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
-
-            selector.style = "background: -moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%); background:-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
+            selector.style = "background: -moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%); background:-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))";
             step += gradientSpeed;
             if (step >= 1) {
                 step %= 1;
                 colorIndices[0] = colorIndices[1];
                 colorIndices[2] = colorIndices[3];
-
                 //pick two new target color indices
                 //do not pick the same as the current one
                 colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
                 colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-
             }
         }
         // then run the loop
         setInterval(updateGradient, this.opts.interval);
-    }
-
-}
-
-
+    };
+    return gradient;
+}());

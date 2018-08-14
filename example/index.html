@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gradient - Example</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 30px;
+            margin: 10px
+        }
+    </style>
+    <div class="eg1">
+        <h1>Hello world</h1>
+    </div>
+    <div  id="make" class="eg2">
+        <h1>Hello world</h1>
+    </div>
+    <script src="../dist/gradient.min.js"></script>
+
+    <script> 
+    new gradient(document.getElementById("make")).animate()
+        var o = document.getElementsByClassName("eg1")[0]
+        new gradient(o, {
+        interval: 20,
+        gradientSpeed: 0.01,
+        colors: new Array(
+            [230, 25, 75],
+            [0, 130, 200],
+            [255, 225, 25],
+            [245, 130, 48],
+            [70, 240, 240],
+            [0, 128, 128],
+            [0, 128, 128]
+        )
+    }).animate();
+
+    </script>
+
+</body>
+
+</html>

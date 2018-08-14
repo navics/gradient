@@ -1,20 +1,29 @@
 {
-  "name": "gradient",
-  "version": "1.0.0",
-  "description": "Adds instagram background color animation to your website",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "gradient",
-    "instgram",
-    "color",
-    "background",
-    "changing",
-    "color",
-    "color-transition"
-  ],
-  "author": "Navicstein Rotciv",
-  "license": "ISC"
+ "name": "gradient",
+ "version": "1.0.1",
+ "description": "A Node.js module that returns the plural form of any noun",
+ "main": "index.js",
+ "scripts": {
+  "build": "tsc && node minify.js",
+  "min": "node minify.js",
+  "dev": "tsc -w"
+ },
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/philipszdavido/mypluralize.git"
+ },
+ "keywords": [],
+ "author": "Navicstein Rotciv <navicstein@gmail.com>",
+ "license": "ISC",
+ "bugs": {
+  "url": "https://github.com/navicstein/gradient/issues"
+ },
+ "homepage": "https://github.com/navicstein/gradient#readme",
+ "devDependencies": {
+  "typescript": "latest"
+ },
+ "dependencies": {
+  "@types/node": "latest",
+  "uglify-es": "^3.3.9"
+ }
 }

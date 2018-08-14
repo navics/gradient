@@ -14,7 +14,7 @@ new gradient(slector, { options })
 Include the script in your webpages
 
 ```html
-<script async src="./path/to/gradient.js"></script>
+<script async src="./dist/gradient.min.js"></script>
 ```
 
 then initialize the gradiant this way.
