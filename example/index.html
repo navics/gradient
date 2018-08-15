@@ -10,35 +10,43 @@
 
 <body>
     <style>
-        * {
+        div {
             padding: 30px;
-            margin: 10px
+            margin: 10px;
+            color: white;
+            text-align: center
         }
     </style>
     <div class="eg1">
-        <h1>Hello world</h1>
+        <h1>It works</h1>
+        <p>it boils down to ...</p>
     </div>
-    <div  id="make" class="eg2">
-        <h1>Hello world</h1>
+    <div id="eg2" class="eg2">
+        <h1>Hello World</h1>
+        <p>Love what you see?</p>
     </div>
+
+    <hr/>
+    <button id="button">Click me</button>
     <script src="../dist/gradient.min.js"></script>
 
     <script> 
-    new gradient(document.getElementById("make")).animate()
-        var o = document.getElementsByClassName("eg1")[0]
-        new gradient(o, {
-        interval: 20,
-        gradientSpeed: 0.01,
-        colors: new Array(
-            [230, 25, 75],
-            [0, 130, 200],
-            [255, 225, 25],
-            [245, 130, 48],
-            [70, 240, 240],
-            [0, 128, 128],
-            [0, 128, 128]
-        )
-    }).animate();
+        new gradient(document.getElementById("eg2")).animate() // using defaults
+        new gradient(document.getElementsByTagName("button")[0]).animate() // using defaults
+        /////
+        var selector = document.getElementsByClassName("eg1")[0]
+        new gradient(selector, {
+            interval: 20,
+            gradientSpeed: 0.01,
+            colors: new Array(
+                [245, 130, 48],
+                [70, 240, 240],
+                [0, 128, 128],
+                [230, 25, 75],
+                [0, 130, 200],
+                [255, 225, 25],
+            )
+        }).animate();
 
     </script>
 
