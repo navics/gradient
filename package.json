@@ -1,29 +1,30 @@
 {
- "name": "gradient",
- "version": "1.0.1",
- "description": "A Node.js module that returns the plural form of any noun",
- "main": "index.js",
- "scripts": {
-  "build": "tsc && node minify.js",
-  "min": "node minify.js",
-  "dev": "tsc -w"
- },
- "repository": {
-  "type": "git",
-  "url": "git+https://github.com/philipszdavido/mypluralize.git"
- },
- "keywords": [],
- "author": "Navicstein Rotciv <navicstein@gmail.com>",
- "license": "ISC",
- "bugs": {
-  "url": "https://github.com/navicstein/gradient/issues"
- },
- "homepage": "https://github.com/navicstein/gradient#readme",
- "devDependencies": {
-  "typescript": "latest"
- },
- "dependencies": {
-  "@types/node": "latest",
-  "uglify-es": "^3.3.9"
- }
+    "name": "gradient",
+    "version": "1.0.1",
+    "description": "A Node.js module that returns the plural form of any noun",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc ./src/gradient && ts-node ./src/min.ts",
+        "min": "ts-node ./src/min.ts",
+        "dev": "tsc -w ./src/gradient"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/philipszdavido/mypluralize.git"
+    },
+    "keywords": [],
+    "author": "Navicstein Rotciv <navicstein@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/navicstein/gradient/issues"
+    },
+    "homepage": "https://github.com/navicstein/gradient#readme",
+    "devDependencies": {
+        "@types/node": "^10.7.0",
+        "typescript": "latest"
+    },
+    "dependencies": {
+        "@types/node": "^10.7.0",
+        "uglify-es": "^3.3.9"
+    }
 }
